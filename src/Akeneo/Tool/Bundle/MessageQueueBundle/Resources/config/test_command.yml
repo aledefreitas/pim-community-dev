@@ -1,0 +1,8 @@
+services:
+    Akeneo\Tool\Bundle\MessageQueueBundle\TestCommand\SendTestMessageCommand:
+        arguments:
+            - '@Symfony\Component\Messenger\MessageBusInterface'
+        tags: [console.command]
+
+    Akeneo\Tool\Bundle\MessageQueueBundle\TestCommand\TestMessageHandler:
+        tags: [messenger.message_handler]

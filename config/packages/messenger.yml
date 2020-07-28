@@ -1,0 +1,25 @@
+framework:
+    messenger:
+        serializer:
+            default_serializer: messenger.transport.native_php_serializer
+            symfony_serializer:
+                format: json
+                context: {  }
+
+        # Uncomment this (and the failed transport below) to send failed messages to this transport for later handling.
+        # failure_transport: failed
+
+        transports:
+            # https://symfony.com/doc/current/messenger.html#transport-configuration
+            webhook: '%env(BUSINESS_EVENT_TRANSPORT_DSN)%'
+            test: '%env(BUSINESS_EVENT_TRANSPORT_DSN)%'
+            # failed: 'doctrine://default?queue_name=failed'
+
+        routing:
+            'Akeneo\Pim\Enrichment\Bundle\Message\ProductUpdated': webhook
+            'Akeneo\Tool\Bundle\MessageQueueBundle\TestCommand\TestMessage': test
+
+        default_bus: business_event.bus
+        buses:
+            business_event.bus: ~
+            job_queue.bus: ~

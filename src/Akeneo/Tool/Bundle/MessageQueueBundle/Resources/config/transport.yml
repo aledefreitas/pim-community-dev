@@ -1,0 +1,3 @@
+services:
+    Akeneo\Tool\Bundle\MessageQueueBundle\Transport\GooglePubSub\GooglePubSubTransportFactory:
+        tags: [messenger.transport_factory]
