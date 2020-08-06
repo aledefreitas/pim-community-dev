@@ -43,6 +43,10 @@ javascript-dev:
 .PHONY: front
 front: assets css javascript-dev
 
+.PHONY: front-watch
+front-watch:
+	$(YARN_RUN) run webpack-watch
+
 .PHONY: database
 database:
 	$(PHP_RUN) bin/console pim:installer:db ${O}
