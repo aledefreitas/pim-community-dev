@@ -13,14 +13,14 @@ services:
                 type: '%pim_enrich.job.mass_edit_type%'
 
     acme.job.default_values_provider.add_comment:
-        class: '%pim_enrich.connector.job.job_parameters.default_values_provider.product_mass_edit.class%'
+        class: 'Akeneo\Pim\Enrichment\Component\Product\Connector\Job\JobParameters\DefaultValueProvider\ProductMassEdit'
         arguments:
             - [ 'add_comment' ]
         tags:
             - { name: akeneo_batch.job.job_parameters.default_values_provider }
 
     acme.job.constraint_collection_provider.add_comment:
-        class: '%pim_enrich.connector.job.job_parameters.constraint_collection_provider.product_mass_edit.class%'
+        class: 'Akeneo\Pim\Enrichment\Component\Product\Connector\Job\JobParameters\ConstraintCollectionProvider\ProductMassEdit'
         arguments:
             - [ 'add_comment' ]
         tags:

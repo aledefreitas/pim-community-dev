@@ -106,7 +106,9 @@ class Reader implements FileReaderInterface
         $headers = $this->fileIterator->getHeaders();
 
         //VIVAPETS
-        $headers = $this->fixHeaders($headers);
+        if (strpos($jobParameters->get('filePath'), 'akeneo-magento') !== false) {
+            $headers = $this->fixHeaders($headers);
+        }
 
         $countHeaders = count($headers);
         $countData = count($data);
@@ -119,18 +121,20 @@ class Reader implements FileReaderInterface
             $data = array_merge($data, $missingValues);
         }
 
-        //$item = array_combine($this->fileIterator->getHeaders(), $data);
         //VIVAPETS
-        $item = array_combine($headers, $data);
-        $item['family'] = 'products';
-        
+        if (strpos($jobParameters->get('filePath'), 'akeneo-magento') !== false) {
+            $item = array_combine($headers, $data);
+            $item['family'] = 'products';
+        } else {
+            $item = array_combine($this->fileIterator->getHeaders(), $data);
+        }
+
         if (isset($item['manufacturer'])) {
             if (!preg_match('/^\d+$/', $item['manufacturer'])) {
                 //echo "manufacturer: " . $item['manufacturer'] . "\n\n";
                 //print_r($item);
-            }            
+            }
         }
-        
 
         try {
             $item = $this->converter->convert($item, $this->getArrayConverterOptions());

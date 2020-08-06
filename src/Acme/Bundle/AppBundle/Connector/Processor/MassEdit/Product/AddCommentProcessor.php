@@ -37,6 +37,6 @@ class AddCommentProcessor extends AbstractProcessor
         )->setBody($actions[0]['value']);
         $this->commentSaver->save($comment);
 
-        return $product;
+        return;
     }
 }

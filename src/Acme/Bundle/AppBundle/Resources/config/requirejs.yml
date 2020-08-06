@@ -1,4 +1,4 @@
 config:
     paths:
-        acme/add-comment: acmeapp/js/add-product-model
-        acme/template/add-comment: acmeapp/templates/add-product-model.html
+        acme/add-product-model: acmeapp/js/add-product-model
+        acme/template/add-product-model: acmeapp/templates/add-product-model.html
