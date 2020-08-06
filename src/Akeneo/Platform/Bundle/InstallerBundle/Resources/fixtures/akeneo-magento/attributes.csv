@@ -1,0 +1,114 @@
+code;allowed_extensions;auto_option_sorting;available_locales;date_max;date_min;decimals_allowed;default_metric_unit;group;localizable;max_characters;max_file_size;metric_family;minimum_input_length;negative_allowed;number_max;number_min;reference_data_name;scopable;sort_order;type;unique;useable_as_grid_filter;validation_regexp;validation_rule;wysiwyg_enabled;label-pt_PT;label-en_US;label-es_AR;label-pt_BR
+name;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Nome do Produto";"Product Name";"Product Name";"Product Name"
+description;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_textarea;0;1;;;;Descrição;Description;Description;Descrição
+short_description;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_textarea;0;1;;;;"Short Description";"Short Description";"Short Description";"Short Description"
+sku;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_identifier;1;1;;;;SKU;SKU;SKU;SKU
+price;;;;;;0;;4;0;;;;;;;;;0;1;pim_catalog_price_collection;0;1;;;;Preço;Price;Price;Price
+special_price;;;;;;0;;4;0;;;;;;;;;0;1;pim_catalog_price_collection;0;1;;;;"Special Price";"Special Price";"Special Price";"Special Price"
+special_from_date;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_date;0;1;;;;"Special Price From Date";"Special Price From Date";"Special Price From Date";"Special Price From Date"
+special_to_date;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_date;0;1;;;;"Special Price To Date";"Special Price To Date";"Special Price To Date";"Special Price To Date"
+cost;;;;;;0;;4;0;;;;;;;;;0;1;pim_catalog_price_collection;0;1;;;;Cost;Cost;Cost;Cost
+weight;;;;;;0;;4;0;;;;;1;;;;0;1;pim_catalog_number;0;1;;;;Peso;Weight;Weight;Weight
+manufacturer;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;Marca;Brand;Marca;Manufacturer
+meta_title;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Meta Title";"Meta Title";"Meta Title";"Meta Title"
+meta_keyword;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_textarea;0;1;;;;"Meta Keywords";"Meta Keywords";"Meta Keywords";"Meta Keywords"
+meta_description;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_textarea;0;1;;;;"Meta Description";"Meta Description";"Meta Description";"Meta Description"
+image;jpg,jpeg,png;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_image;0;1;;;;Base;Base;Base;Base
+small_image;jpg,jpeg,png;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_image;0;1;;;;Small;Small;Small;Small
+thumbnail;jpg,jpeg,png;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_image;0;1;;;;Thumbnail;Thumbnail;Thumbnail;Thumbnail
+media_gallery;jpg,jpeg,png;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_image;0;1;;;;"Media Gallery";"Media Gallery";"Media Gallery";"Media Gallery"
+old_id;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;;;;
+tier_price;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Tier Price";"Tier Price";"Tier Price";"Tier Price"
+color;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;Color;Color;Color;Color
+news_from_date;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_date;0;1;;;;"Set Product as New from Date";"Set Product as New from Date";"Set Product as New from Date";"Set Product as New from Date"
+news_to_date;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_date;0;1;;;;"Set Product as New to Date";"Set Product as New to Date";"Set Product as New to Date";"Set Product as New to Date"
+gallery;jpg,jpeg,png;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_image;0;1;;;;"Image Gallery";"Image Gallery";"Image Gallery";"Image Gallery"
+status;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Enable Product";"Enable Product";"Enable Product";"Enable Product"
+url_key;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"URL Key";"URL Key";"URL Key";"URL Key"
+url_path;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;;;;
+minimal_price;;;;;;0;;4;0;;;;;;;;;0;1;pim_catalog_price_collection;0;1;;;;"Minimal Price";"Minimal Price";"Minimal Price";"Minimal Price"
+is_recurring;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Enable Recurring Profile";"Enable Recurring Profile";"Enable Recurring Profile";"Enable Recurring Profile"
+recurring_profile;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Recurring Payment Profile";"Recurring Payment Profile";"Recurring Payment Profile";"Recurring Payment Profile"
+visibility;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;Visibility;Visibility;Visibility;Visibility
+custom_design;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"New Theme";"New Theme";"New Theme";"New Theme"
+custom_design_from;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_date;0;1;;;;"Active From";"Active From";"Active From";"Active From"
+custom_design_to;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_date;0;1;;;;"Active To";"Active To";"Active To";"Active To"
+custom_layout_update;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_textarea;0;1;;;;"Layout Update XML";"Layout Update XML";"Layout Update XML";"Layout Update XML"
+page_layout;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;Layout;Layout;Layout;Layout
+category_ids;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;Categorias;Categories;Categorias;Categories
+options_container;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Display Product Options In";"Display Product Options In";"Display Product Options In";"Display Product Options In"
+required_options;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;;;;
+has_options;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;;;;
+image_label;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Image Label";"Image Label";"Image Label";"Image Label"
+small_image_label;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Small Image Label";"Small Image Label";"Small Image Label";"Small Image Label"
+thumbnail_label;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Thumbnail Label";"Thumbnail Label";"Thumbnail Label";"Thumbnail Label"
+created_at;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_date;0;1;;;;;;;
+updated_at;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_date;0;1;;;;;;;
+country_of_manufacture;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Country of Manufacture";"Country of Manufacture";"Country of Manufacture";"Country of Manufacture"
+msrp_display_actual_price_type;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Display Actual Price";"Display Actual Price";"Display Actual Price";"Display Actual Price"
+msrp;;;;;;0;;4;0;;;;;;;;;0;1;pim_catalog_price_collection;0;1;;;;"Manufacturer's Suggested Retail Price";"Manufacturer's Suggested Retail Price";"Manufacturer's Suggested Retail Price";"Manufacturer's Suggested Retail Price"
+tax_class_id;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Tax Class";"Tax Class";"Tax Class";"Tax Class"
+gift_message_available;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Allow Gift Message";"Allow Gift Message";"Allow Gift Message";"Allow Gift Message"
+price_type;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_boolean;0;1;;;;"Dynamic Price";"Dynamic Price";"Dynamic Price";"Dynamic Price"
+sku_type;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_boolean;0;1;;;;"Dynamic SKU";"Dynamic SKU";"Dynamic SKU";"Dynamic SKU"
+weight_type;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_boolean;0;1;;;;"Dynamic Weight";"Dynamic Weight";"Dynamic Weight";"Dynamic Weight"
+price_view;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Price View";"Price View";"Price View";"Price View"
+shipment_type;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Ship Bundle Items";"Ship Bundle Items";"Ship Bundle Items";"Ship Bundle Items"
+links_purchased_separately;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Links can be purchased separately";"Links can be purchased separately";"Links can be purchased separately";"Links can be purchased separately"
+samples_title;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Samples title";"Samples title";"Samples title";"Samples title"
+links_title;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Links title";"Links title";"Links title";"Links title"
+links_exist;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;;;;
+size;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;Tamanho;Size;Tamaño;Size
+meigee_product_theme_id;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Meigee Product Theme Id";"Meigee Product Theme Id";"Meigee Product Theme Id";"Meigee Product Theme Id"
+load_type;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Load Type";"Load Type";"Load Type";"Load Type"
+product_group;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_multiselect;0;1;;;;"Product group";"Product group";"Product group";"Product group"
+product_weight;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Peso do produto";"Product Weight";"Peso del producto";"Product Weight"
+amount;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;Montante;Amount;Catidad;Amount
+diameter;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;Diâmetro;Diameter;Diámetro;Diameter
+litros;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;Litros;Liters;Liters;Liters
+option;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;Opção;Option;Option;Option
+pet_size;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Pet Size";"Pet Size";"Pet Size";"Pet Size"
+pet_type;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Pet Type";"Pet Type";"Pet Type";"Pet Type"
+age;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;Idade;Age;Edad;Age
+diets;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Dietas especiais";"Special Diets";"Dietas especiales";Diets
+breed;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Tamanho da raça";"Breed Size";"Tamaño de la raza";"Breed Size"
+quantity_and_stock_status;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;Quantity;Quantity;Quantity;Quantity
+custom_layout;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"New Layout";"New Layout";"New Layout";"New Layout"
+swatch_image;jpg,jpeg,png;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_image;0;1;;;;Swatch;Swatch;Swatch;Swatch
+mst_search_weight;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Search Weight";"Search Weight";"Search Weight";"Search Weight"
+sold_qty;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Sold QTY";"Sold QTY";"Sold QTY";"Sold QTY"
+shipperhq_shipping_fee;;;;;;0;;4;0;;;;;;;;;0;1;pim_catalog_price_collection;0;1;;;;"Shipping Fee";"Shipping Fee";"Shipping Fee";"Shipping Fee"
+shipperhq_addon_price;;;;;;0;;4;0;;;;;;;;;0;1;pim_catalog_price_collection;0;1;;;;"Increment for Subsequent Items";"Increment for Subsequent Items";"Increment for Subsequent Items";"Increment for Subsequent Items"
+shipperhq_inc_percent;;;;;;0;;4;0;;;;;;;;;0;1;pim_catalog_price_collection;0;1;;;;"Calculate Additional using Percentages";"Calculate Additional using Percentages";"Calculate Additional using Percentages";"Calculate Additional using Percentages"
+ean_code;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;EAN;EAN;EAN;EAN
+breed_type;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;Raça;Breed;Breed;Breed
+specific_breed;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Raça Específica";"Specific Breed";"Specific Breed";specific_breed
+shipping_cost;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Shipping Cost Koongo";"Shipping Cost Koongo";"Shipping Cost Koongo";"Shipping Cost Koongo"
+shipping_ground_only;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_boolean;0;1;;;;"Ground Shipping Only";"Ground Shipping Only";"Ground Shipping Only";"Ground Shipping Only"
+yoast_focus_keyword;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Yoast Focus Keyword";"Yoast Focus Keyword";"Yoast Focus Keyword";"Yoast Focus Keyword"
+yoast_keyword_score;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Yoast Keyword Score";"Yoast Keyword Score";"Yoast Keyword Score";"Yoast Keyword Score"
+yoast_content_score;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Yoast Content Score";"Yoast Content Score";"Yoast Content Score";"Yoast Content Score"
+yoast_robots_instructions;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Yoast Robots Instructions";"Yoast Robots Instructions";"Yoast Robots Instructions";"Yoast Robots Instructions"
+yoast_facebook_title;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Yoast Facebook Title";"Yoast Facebook Title";"Yoast Facebook Title";"Yoast Facebook Title"
+yoast_facebook_description;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_textarea;0;1;;;;"Yoast Facebook Description";"Yoast Facebook Description";"Yoast Facebook Description";"Yoast Facebook Description"
+yoast_facebook_image;jpg,jpeg,png;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_image;0;1;;;;"Yoast Facebook Image";"Yoast Facebook Image";"Yoast Facebook Image";"Yoast Facebook Image"
+yoast_twitter_title;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Yoast Twitter Title";"Yoast Twitter Title";"Yoast Twitter Title";"Yoast Twitter Title"
+yoast_twitter_description;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_textarea;0;1;;;;"Yoast Twitter Description";"Yoast Twitter Description";"Yoast Twitter Description";"Yoast Twitter Description"
+yoast_twitter_image;jpg,jpeg,png;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_image;0;1;;;;"Yoast Twitter Image";"Yoast Twitter Image";"Yoast Twitter Image";"Yoast Twitter Image"
+ts_dimensions_length;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;Length;Length;Length;Length
+ts_dimensions_width;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;Width;Width;Width;Width
+ts_dimensions_height;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;Height;Height;Height;Height
+ingredients;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_textarea;0;1;;;;Ingredients;Ingredients;Ingredients;Ingredients
+dimensions;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_textarea;0;1;;;;Dimensions;Dimensions;Dimensions;Dimensions
+instructions;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_textarea;0;1;;;;Instructions;Instructions;Instructions;Instructions
+nutrition_information;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_textarea;0;1;;;;"Nutrition Information";"Nutrition Information";"Nutrition Information";"Nutrition Information"
+benefits;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_textarea;0;1;;;;Benefits;Benefits;Benefits;Benefits
+merchant_center_category;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Google Merchant Center Category";"Google Merchant Center Category";"Google Merchant Center Category";"Google Merchant Center Category"
+ts_hs_code;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"HS Code";"HS Code";"HS Code";"HS Code"
+stripe_sub_enabled;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_boolean;0;1;;;;"Subscription Enabled";"Subscription Enabled";"Subscription Enabled";"Subscription Enabled"
+stripe_sub_interval;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;Frequency;Frequency;Frequency;Frequency
+stripe_sub_interval_count;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Repeat Every";"Repeat Every";"Repeat Every";"Repeat Every"
+stripe_sub_trial;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Trial Days";"Trial Days";"Trial Days";"Trial Days"
+stripe_sub_initial_fee;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Initial Fee";"Initial Fee";"Initial Fee";"Initial Fee"
+hscode_id;;;;;;;;4;0;;;;;;;;;0;1;pim_catalog_simpleselect;0;1;;;;"Stada HSCode";"Stada HSCode";"Stada HSCode";"Stada HSCode"
+medicine_product_code;;;;;;;;4;1;;;;;;;;;0;1;pim_catalog_text;0;1;;;;"Medicine Product Code";"Medicine Product Code";"Medicine Product Code";"Medicine Product Code"

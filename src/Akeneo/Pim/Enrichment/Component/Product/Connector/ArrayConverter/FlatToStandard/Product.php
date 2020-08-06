@@ -173,15 +173,24 @@ class Product implements ArrayConverterInterface
      */
     public function convert(array $item, array $options = []): array
     {
+        //VIVAPETS
+        if (isset($item['manufacturer'])) {
+            $attributeFieldInfo = $this->attrFieldExtractor->extractColumnInfo('manufacturer');
+            if (!preg_match('/^\d+$/', $item['manufacturer'])) {
+                echo "manufacturer: " . $item['manufacturer'] . "\n\n";
+                //print_r($item);
+            }            
+        }
+
         $options = $this->prepareOptions($options);
 
-        $mappedItem = $this->mapFields($item, $options);
-        $filteredItem = $this->filterFields($mappedItem, $options['with_associations']);
+        $mappedItem = $this->mapFields($item, $options);        
+        $filteredItem = $this->filterFields($mappedItem, $options['with_associations']);        
         $this->validateItem($filteredItem);
 
         $mergedItem = $this->columnsMerger->merge($filteredItem);
         $convertedItem = $this->convertItem($mergedItem);
-
+        
         return $convertedItem;
     }
 

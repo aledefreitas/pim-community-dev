@@ -139,6 +139,28 @@ class Value implements ArrayConverterInterface
         if (null !== $attributeFieldInfo && isset($attributeFieldInfo['attribute'])) {
             $converter = $this->converterRegistry->getConverter($attributeFieldInfo['attribute']->getType());
 
+            //VIVAPETS
+            if ($column == 'manufacturer' && !preg_match('/^\d+$/', $value)) {    
+                $newValue = false;
+                
+                $options = $attributeFieldInfo['attribute']->getOptions();                
+                foreach ($options as $option) {
+                    foreach ($option->getOptionValues() as $optionValue) {
+                        if ($optionValue->getValue() == $value) {
+                            $newValue = $option->getCode();
+                            break;
+                        }
+                    }
+                    if ($newValue) break;
+                }
+                if ($newValue) {
+                    $value = $newValue; 
+                }
+                else {
+                    //criar manufactory
+                }
+            }
+
             if (null === $converter) {
                 throw new \LogicException(
                     sprintf(

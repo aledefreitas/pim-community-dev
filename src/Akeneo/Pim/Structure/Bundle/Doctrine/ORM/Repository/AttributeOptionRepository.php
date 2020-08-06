@@ -35,6 +35,7 @@ class AttributeOptionRepository extends EntityRepository implements
      */
     public function getOptions($dataLocale, $collectionId = null, $search = '', array $options = [])
     {
+        echo "\n\nSUCC\n\n";
         if (null === $collectionId) {
             throw new \InvalidArgumentException('Please supply attribute id as collectionId');
         }

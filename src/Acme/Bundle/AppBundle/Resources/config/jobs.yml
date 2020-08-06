@@ -1,0 +1,27 @@
+services:
+    acme.job.add_comment:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - 'add_comment'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            - [ '@acme.step.add_comment.mass_edit' ]
+        tags:
+            -
+                name: akeneo_batch.job
+                connector: '%pim_enrich.connector_name.mass_edit%'
+                type: '%pim_enrich.job.mass_edit_type%'
+
+    acme.job.default_values_provider.add_comment:
+        class: '%pim_enrich.connector.job.job_parameters.default_values_provider.product_mass_edit.class%'
+        arguments:
+            - [ 'add_comment' ]
+        tags:
+            - { name: akeneo_batch.job.job_parameters.default_values_provider }
+
+    acme.job.constraint_collection_provider.add_comment:
+        class: '%pim_enrich.connector.job.job_parameters.constraint_collection_provider.product_mass_edit.class%'
+        arguments:
+            - [ 'add_comment' ]
+        tags:
+            - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }

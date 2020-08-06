@@ -1,0 +1,14 @@
+code;family;label-en_US;variant-axes_1;variant-axes_2;variant-attributes_1;variant-attributes_2
+product_weight;products;product_weight;product_weight;;sku,product_weight;
+pet_size;products;pet_size;pet_size;;sku,pet_size;
+litros;products;litros;litros;;sku,litros;
+size;products;size;size;;sku,size;
+color;products;color;color;;sku,color;
+amount;products;amount;amount;;sku,amount;
+option;products;option;option;;sku,option;
+diameter;products;diameter;diameter;;sku,diameter;
+pet_type;products;pet_type;pet_type;;sku,pet_type;
+weight;products;product_weight;product_weight;;sku,product_weight;
+color_size;products;color_size;color,size;;sku,color,size;
+size_color;products;size_color;size,color;;sku,size,color;
+breed;products;breed;breed;;sku,breed;

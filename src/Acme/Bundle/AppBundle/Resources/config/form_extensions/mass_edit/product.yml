@@ -1,0 +1,13 @@
+extensions:
+    acme-mass-product-edit-configure-add-product-model:
+        module: acme/add-product-model
+        parent: pim-mass-product-edit
+        position: 500
+        config:
+            title: pim_enrich.mass_edit.product.title
+            label: 'Add product model'
+            labelCount: "{1}Add product model to <span class=\"AknFullPage-title--highlight\">1 product</span>|]1, Inf[Add comment to <span class=\"AknFullPage-title--highlight\">{{ itemsCount }} products</span>"
+            description: 'Add to an new product model for a set of products'
+            code: add_product_model
+            jobInstanceCode: add_product_model
+            icon: icon-template

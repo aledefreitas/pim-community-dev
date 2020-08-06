@@ -1,0 +1,10 @@
+services:
+    acme.step.add_comment.mass_edit:
+        class: '%pim_connector.step.item_step.class%'
+        arguments:
+            - 'perform'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            - '@pim_enrich.reader.database.product_and_product_model'
+            - '@acme.connector.processor.mass_edit.product.add_comment'
+            - '@pim_connector.writer.database.product'

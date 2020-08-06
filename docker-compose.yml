@@ -1,8 +1,32 @@
 version: '3.4'
 
+#Named Volumes
+volumes:
+    vivapets-akeneo-mysql-data:
+        driver: local
+    vivapets-akeneo-elasticsearch-data:
+        driver: local
+
+networks:
+    vivapets-akeneo-internal-network:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.22.231.0/24
+    vivapets-proxy-network:
+        external:
+            name: vivapets-nginx-proxy-net
+
+
 services:
-  php:
-    image: 'akeneo/pim-php-dev:4.0'
+  vivapets-akeneo-php:
+    build:
+        context: .
+        dockerfile: ./docker/app/Dockerfile
+        args:
+            UID: ${USERID:-1000}
+            GID: ${GID:-1000}
     environment:
       APP_ENV: '${APP_ENV:-prod}'
       COMPOSER_HOME: '/var/www/.composer'
@@ -17,10 +41,15 @@ services:
     working_dir: '/srv/pim'
     command: 'php'
     networks:
-      - 'pim'
+      - 'vivapets-akeneo-internal-network'
 
-  fpm:
-    image: 'akeneo/pim-php-dev:4.0'
+  vivapets-akeneo-fpm:
+    build:
+        context: .
+        dockerfile: ./docker/app/Dockerfile
+        args:
+            UID: ${USERID:-1000}
+            GID: ${GID:-1000}
     environment:
       APP_ENV: '${APP_ENV:-prod}'
       BEHAT_TMPDIR: '/srv/pim/var/cache/tmp'
@@ -32,12 +61,13 @@ services:
       BLACKFIRE_CLIENT_TOKEN: '${BLACKFIRE_CLIENT_TOKEN:-client_token}'
     volumes:
       - './:/srv/pim'
+      - './docker/supervisor:/etc/supervisor'
     working_dir: '/srv/pim'
-    command: 'php-fpm -F'
+    command: '/usr/bin/supervisord -n'
     networks:
-      - 'pim'
+      - 'vivapets-akeneo-internal-network'
 
-  node:
+  vivapets-akeneo-node:
     image: 'akeneo/node:10'
     environment:
       YARN_CACHE_FOLDER: '/home/node/.yarn'
@@ -46,80 +76,75 @@ services:
       - '${HOST_YARN_CACHE_FOLDER:-~/.cache/yarn}:/home/node/.yarn'
     working_dir: '/srv/pim'
     networks:
-      - 'pim'
+      - 'vivapets-akeneo-internal-network'
 
-  selenium:
-    image: 'selenium/standalone-chrome-debug:3'
+  vivapets-akeneo-selenium:
+    image: 'selenium/standalone-firefox-debug:2.53.1-beryllium'
     volumes:
       - './:/srv/pim:ro'
-      - '/dev/shm:/dev/shm'
-    ports:
-      - '${DOCKER_PORT_SELENIUM:-5910}:5900'
+#    ports:
+#      - '${DOCKER_PORT_SELENIUM:-5910}:5900'
     networks:
-      - 'pim'
+      - 'vivapets-akeneo-internal-network'
 
-  httpd:
+  vivapets-akeneo-httpd:
     image: 'httpd:2.4'
     environment:
       APP_ENV: '${APP_ENV:-prod}'
     depends_on:
-      - 'fpm'
-    ports:
-      - '${DOCKER_PORT_HTTP:-8080}:80'
+      - 'vivapets-akeneo-fpm'
+#    ports:
+#      - '${DOCKER_PORT_HTTP:-8080}:80'
     volumes:
       - './:/srv/pim:ro'
       - './docker/httpd.conf:/usr/local/apache2/conf/httpd.conf:ro'
       - './docker/akeneo.conf:/usr/local/apache2/conf/vhost.conf:ro'
     networks:
-      - 'pim'
+      - 'vivapets-akeneo-internal-network'
+      - 'vivapets-proxy-network'
 
-  mysql:
+  vivapets-akeneo-mysql:
     image: 'mysql:8.0.18'
     command: '--default-authentication-plugin=mysql_native_password'
+    volumes:
+      - vivapets-akeneo-mysql-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: 'root'
       MYSQL_USER: '${APP_DATABASE_USER}'
       MYSQL_DATABASE: '${APP_DATABASE_NAME}'
       MYSQL_PASSWORD: '${APP_DATABASE_PASSWORD}'
-    ports:
-      - '${DOCKER_PORT_MYSQL:-33006}:3306'
+#    ports:
+#      - '${DOCKER_PORT_MYSQL:-33006}:3306'
     networks:
-      - 'pim'
+      - 'vivapets-akeneo-internal-network'
 
-  elasticsearch:
+  vivapets-akeneo-elasticsearch:
     image: 'docker.elastic.co/elasticsearch/elasticsearch-oss:7.5.1'
+    volumes:
+      - vivapets-akeneo-elasticsearch-data:/usr/share/elasticsearch/data
     environment:
       ES_JAVA_OPTS: '${ES_JAVA_OPTS:--Xms512m -Xmx512m}'
       discovery.type: 'single-node'
-    ports:
-      - '${DOCKER_PORT_ELASTICSEARCH:-9210}:9200'
+#    ports:
+#      - '${DOCKER_PORT_ELASTICSEARCH:-9210}:9200'
     networks:
-      - 'pim'
+      - 'vivapets-akeneo-internal-network'
 
-  object-storage:
+  vivapets-akeneo-object-storage:
     image: 'minio/minio'
     entrypoint: '/bin/sh -c "mkdir -p /data/asset /data/archive /data/catalog/ /data/jobs && minio server /data"'
     environment:
       MINIO_ACCESS_KEY: 'AKENEO_OBJECT_STORAGE_ACCESS_KEY'
       MINIO_SECRET_KEY: 'AKENEO_OBJECT_STORAGE_SECRET_KEY'
-    ports:
-      - '${DOCKER_PORT_OBJECT_STORAGE:-9090}:9000'
+#    ports:
+#      - '${DOCKER_PORT_OBJECT_STORAGE:-9090}:9000'
     networks:
-      - 'pim'
+      - 'vivapets-akeneo-internal-network'
 
-  blackfire:
+  vivapets-akeneo-blackfire:
     image: blackfire/blackfire
     environment:
       BLACKFIRE_SERVER_ID: '${BLACKFIRE_SERVER_ID:-server_id}'
       BLACKFIRE_SERVER_TOKEN: '${BLACKFIRE_SERVER_TOKEN:-server_token}'
     networks:
-      - 'pim'
-
-  pubsub-emulator:
-    image: 'google/cloud-sdk:latest'
-    command: 'gcloud --user-output-enabled --log-http beta emulators pubsub start --host-port=0.0.0.0:8085'
-    networks:
-      - 'pim'
-
-networks:
-  pim:
+      - 'vivapets-akeneo-internal-network'
