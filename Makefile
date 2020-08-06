@@ -90,7 +90,7 @@ endif
 	$(MAKE) cache
 	$(MAKE) assets
 	$(MAKE) javascript-dev
-	APP_ENV=dev $(MAKE) database O="--catalog src/Akeneo/Platform/Bundle/InstallerBundle/Resources/fixtures/icecat_demo_dev"
+	APP_ENV=dev $(MAKE) database O="--catalog src/Akeneo/Platform/Bundle/InstallerBundle/Resources/fixtures/icecat_demo_dev -v"
 
 .PHONY: up
 up:
