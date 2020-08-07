@@ -1,0 +1,24 @@
+extensions:
+    acme-mass-product-edit-configure-add-product-model-family:
+        module: pim/mass-edit-form/product/mass-edit-field
+        parent: acme-mass-product-edit-configure-add-product-model
+        targetZone: fields
+        position: 20
+        config:
+            fieldName: family
+            required: true
+            label: pim_enrich.entity.family.uppercase_label
+            choiceRoute: pim_enrich_family_index_get_variants
+            placeholder: pim_enrich.entity.product.module.create.choose_family
+
+    acme-mass-product-edit-configure-add-product-model-variant:
+        module: pim/mass-edit-form/product/variant-field
+        parent: acme-mass-product-edit-configure-add-product-model
+        targetZone: fields
+        position: 30
+        config:
+            fieldName: family_variant
+            label: pim_enrich.entity.product_model.property.family_variant
+            required: true
+            loadUrl: pim_enrich_family_variant_rest_index
+            placeholder: pim_enrich.entity.product.module.create.choose_family_variant
