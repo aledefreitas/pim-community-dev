@@ -1,38 +1,50 @@
 'use strict';
-define(['underscore', 'pim/mass-edit-form/product/operation', 'acme/template/add-product-model', 'pim/user-context'],
-    function (_, BaseOperation, template, UserContext) {
-        return BaseOperation.extend({
-            template: _.template(template),
-            events: {
-                'change .comment-field': 'updateModel'
-            },
+define([
+    'underscore',
+    'pim/mass-edit-form/product/operation',
+    'acme/template/add-product-model',
+], function (
+    _,
+    BaseOperation,
+    template
+) {
+    return BaseOperation.extend({
+        template: _.template(template),
+        events: {
+            'change .comment-field': 'updateModel'
+        },
 
-            render: function () {
-                this.$el.html(this.template({
-                    value: this.getValue(),
-                    readOnly: this.readOnly
-                }));
-                return this;
-            },
+        /**
+         * {@inheritdoc}
+         */
+        configure: function () {
+            this.listenTo(this.getRoot(), 'pim_enrich:form:entity:post_update', this.updateModel);
 
-            updateModel: function (event) {
-                this.setValue(event.target.value);
-            },
+            return BaseOperation.prototype.configure.apply(this, arguments);
+        },
 
-            setValue: function (comment) {
-                let data = this.getFormData();
-                data.actions = [{
-                    field: 'comment',
-                    value: comment,
-                    username: UserContext.get('username')
-                }];
-                this.setData(data);
-            },
+        /**
+         * {@inheritdoc}
+         */
+        render: function () {
+            this.$el.html(this.template({
+                readOnly: this.readOnly
+            }));
 
-            getValue: function () {
-                const action = _.findWhere(this.getFormData().actions, { field: 'comment' });
-                return action ? action.value : null;
+            BaseOperation.prototype.render.apply(this, arguments);
+
+            return this;
+        },
+
+        /**
+         * Updates the model to store action
+         *
+         * @param {Object} formData
+         */
+        updateModel: function (formData) {
+            if (this.getParent().getCurrentOperation() === this.getCode()) {
+                this.setData(formData, {silent: true});
             }
-        });
-    }
-);
+        },
+    });
+});

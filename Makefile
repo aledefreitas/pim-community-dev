@@ -40,6 +40,11 @@ javascript-dev:
 	$(CMD_ON_PROJECT) rm -rf public/dist
 	$(YARN_RUN) run webpack-dev
 
+.PHONY: javascript-watch
+javascript-watch:
+	$(CMD_ON_PROJECT) rm -rf public/dist
+	$(YARN_RUN) run webpack-watch
+
 .PHONY: front
 front: assets css javascript-dev
 
