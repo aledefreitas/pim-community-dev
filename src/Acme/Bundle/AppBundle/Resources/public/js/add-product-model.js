@@ -43,6 +43,11 @@ define([
          */
         updateModel: function (formData) {
             if (this.getParent().getCurrentOperation() === this.getCode()) {
+                formData.actions = [{
+                    field: 'familyVariant',
+                    value: formData.family_variant
+                }];
+
                 this.setData(formData, {silent: true});
             }
         },

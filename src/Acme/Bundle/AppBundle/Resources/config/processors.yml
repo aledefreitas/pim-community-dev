@@ -1,10 +1,21 @@
 parameters:
     acme.connector.processor.mass_edit.product.add_comment.class: Acme\Bundle\AppBundle\Connector\Processor\MassEdit\Product\AddCommentProcessor
+    acme.connector.processor.mass_edit.product.add_product_model.class: Acme\Bundle\AppBundle\Connector\Processor\MassEdit\Product\AddProductModelProcessor
 
 services:
     acme.connector.processor.mass_edit.product.add_comment:
         class: '%acme.connector.processor.mass_edit.product.add_comment.class%'
-        arguments:
+        arguments:            
             - '@pim_comment.builder.comment'
             - '@pim_comment.saver.comment'
+            - '@pim_user.repository.user'
+
+    acme.connector.processor.mass_edit.product.add_product_model:
+        class: '%acme.connector.processor.mass_edit.product.add_product_model.class%'
+        arguments:
+            - '@pim_catalog.factory.product_model'
+            - '@pim_api.updater.product_model'
+            - '@pim_catalog.saver.product_model'
+            - '@pim_catalog.entity_with_family_variant.add_parent_to_product'
+            - '@pim_catalog.validator.product_model'
             - '@pim_user.repository.user'
