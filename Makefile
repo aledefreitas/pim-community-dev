@@ -3,10 +3,11 @@
 # Feel free to customize it to your needs!
 #
 #CMD_ON_PROJECT = docker-compose -f docker-compose.dev.yml run -u www-data --rm vivapets-akeneo-php
-CMD_ON_PROJECT = USERID=$(id -u) GID=$(id -g) docker-compose run -u www-data --rm vivapets-akeneo-php
+CMD_ON_PROJECT = USERID=$$(id -u) GID=$$(id -g) docker-compose run -u www-data --rm vivapets-akeneo-php
 PHP_RUN = $(CMD_ON_PROJECT) php -d memory_limit=-1
 #YARN_RUN = docker-compose -f docker-compose.dev.yml run -u node --rm -e YARN_REGISTRY -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD vivapets-akeneo-node yarn
-YARN_RUN = docker-compose run -u node --rm -e YARN_REGISTRY -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD vivapets-akeneo-node yarn
+#YARN_RUN = docker-compose run -u node --rm -e YARN_REGISTRY -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD vivapets-akeneo-node yarn
+YARN_RUN = docker-compose run --rm -e YARN_REGISTRY -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD vivapets-akeneo-node yarn
 
 ifdef NO_DOCKER
   CMD_ON_PROJECT =
@@ -105,8 +106,8 @@ endif
 
 .PHONY: up
 up:
-	#USERID=$(id -u) GID=$(id -g) docker-compose -f docker-compose.dev.yml up -d --remove-orphan
-	USERID=$(id -u) GID=$(id -g) docker-compose up -d --remove-orphan
+	USERID=$(id -u) GID=$(id -g) docker-compose -f docker-compose.dev.yml up -d --remove-orphan
+	#USERID=1001 GID=1001 docker-compose up -d --remove-orphan
 
 .PHONY: down
 down:
