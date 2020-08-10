@@ -106,7 +106,7 @@ endif
 
 .PHONY: up
 up:
-	USERID=$(id -u) GID=$(id -g) docker-compose -f docker-compose.dev.yml up -d --remove-orphan
+	USERID=$$(id -u) GID=$$(id -g) docker-compose -f docker-compose.dev.yml up -d --remove-orphan
 	#USERID=1001 GID=1001 docker-compose up -d --remove-orphan
 
 .PHONY: down
