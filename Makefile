@@ -3,7 +3,7 @@
 # Feel free to customize it to your needs!
 #
 #CMD_ON_PROJECT = docker-compose -f docker-compose.dev.yml run -u www-data --rm vivapets-akeneo-php
-CMD_ON_PROJECT = docker-compose run -u www-data --rm vivapets-akeneo-php
+CMD_ON_PROJECT = USERID=$(id -u) GID=$(id -g) docker-compose run -u www-data --rm vivapets-akeneo-php
 PHP_RUN = $(CMD_ON_PROJECT) php -d memory_limit=-1
 #YARN_RUN = docker-compose -f docker-compose.dev.yml run -u node --rm -e YARN_REGISTRY -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD vivapets-akeneo-node yarn
 YARN_RUN = docker-compose run -u node --rm -e YARN_REGISTRY -e PUPPETEER_SKIP_CHROMIUM_DOWNLOAD vivapets-akeneo-node yarn
