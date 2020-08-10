@@ -52,6 +52,9 @@ class Product implements ArrayConverterInterface
     /** @var ArrayConverterInterface */
     protected $productValueConverter;
 
+    /** @var ProductTransformer */
+    protected $productTransformer;
+
     /**
      * @param AssociationColumnsResolver      $assocColumnsResolver
      * @param AttributeColumnsResolver        $attrColumnsResolver
@@ -70,7 +73,8 @@ class Product implements ArrayConverterInterface
         ColumnsMapper $columnsMapper,
         FieldsRequirementChecker $fieldChecker,
         AttributeRepositoryInterface $attributeRepository,
-        ArrayConverterInterface $productValueConverter
+        ArrayConverterInterface $productValueConverter,
+        ProductTransformer $productTransformer
     ) {
         $this->assocColumnsResolver = $assocColumnsResolver;
         $this->attrColumnsResolver = $attrColumnsResolver;
@@ -81,6 +85,7 @@ class Product implements ArrayConverterInterface
         $this->optionalAssocFields = [];
         $this->attributeRepository = $attributeRepository;
         $this->productValueConverter = $productValueConverter;
+        $this->productTransformer = $productTransformer;
     }
 
     /**
@@ -173,14 +178,7 @@ class Product implements ArrayConverterInterface
      */
     public function convert(array $item, array $options = []): array
     {
-        //VIVAPETS
-        if (isset($item['manufacturer'])) {
-            $attributeFieldInfo = $this->attrFieldExtractor->extractColumnInfo('manufacturer');
-            if (!preg_match('/^\d+$/', $item['manufacturer'])) {
-                echo "manufacturer: " . $item['manufacturer'] . "\n\n";
-                //print_r($item);
-            }            
-        }
+        $item = $this->productTransformer->transform($item, $options);
 
         $options = $this->prepareOptions($options);
 

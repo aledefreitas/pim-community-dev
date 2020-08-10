@@ -28,6 +28,15 @@ services:
         arguments:
             - '@pim_connector.array_converter.flat_to_standard.product_model'
 
+    ### Product Transformer
+    pim_connector.array_converter.flat_to_standard.product_transformer:
+        class: 'Akeneo\Pim\Enrichment\Component\Product\Connector\ArrayConverter\FlatToStandard\ProductTransformer'
+        arguments:
+            - '@pim_catalog.repository.attribute'
+            - '@pim_catalog.repository.locale'
+            - '@pim_catalog.factory.attribute_option'
+            - '@pim_catalog.saver.attribute_option'
+
     ### Product
     pim_connector.array_converter.flat_to_standard.product:
         class: 'Akeneo\Pim\Enrichment\Component\Product\Connector\ArrayConverter\FlatToStandard\Product'
@@ -40,6 +49,7 @@ services:
             - '@pim_connector.array_convertor.checker.fields_requirement'
             - '@pim_catalog.repository.attribute'
             - '@pim_connector.array_converter.flat_to_standard.product_value'
+            - '@pim_connector.array_converter.flat_to_standard.product_transformer'
 
     pim_connector.array_converter.flat_to_standard.product_value:
         class: 'Akeneo\Pim\Enrichment\Component\Product\Connector\ArrayConverter\FlatToStandard\Value'
