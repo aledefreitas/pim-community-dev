@@ -92,8 +92,8 @@ services:
       - '${DOCKER_PORT_HTTP:-8080}:80'
     volumes:
       - './:/srv/pim:ro'
-      - './docker/httpd.conf:/usr/local/apache2/conf/httpd.conf:ro'
-      - './docker/akeneo.conf:/usr/local/apache2/conf/vhost.conf:ro'
+      - './docker/dev/httpd.conf:/usr/local/apache2/conf/httpd.conf:ro'
+      - './docker/dev/akeneo.conf:/usr/local/apache2/conf/vhost.conf:ro'
     networks:
       - 'vivapets-akeneo-internal-network'
 
