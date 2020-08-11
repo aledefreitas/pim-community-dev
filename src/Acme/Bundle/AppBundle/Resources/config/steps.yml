@@ -9,7 +9,7 @@ services:
             - '@acme.connector.processor.mass_edit.product.add_comment'
             - '@pim_connector.writer.database.product'
     acme.step.add_product_model.mass_edit:
-        class: '%pim_connector.step.item_step.class%'
+        class: '%pim_connector.step.item_product_model_step.class%'
         arguments:
             - 'perform'
             - '@event_dispatcher'

@@ -63,7 +63,7 @@ class AddProductModelProcessor extends AbstractProcessor
 
         $actions = $this->getConfiguredActions();
 
-        $parentProductModelCode = 'xxx-xyz123';
+        $parentProductModelCode = $product->skuModel;
         $familyVariant = $actions[0]['value'];
 
         $productModel = $this->getOrCreateProductModel($product, $parentProductModelCode, $familyVariant);
@@ -95,9 +95,11 @@ class AddProductModelProcessor extends AbstractProcessor
         }
         $content['categories'] = $categories;     
 
+        /*
         foreach ($product->getValues() as $productValue) {
             print_r($productValue);
         }
+        */
 
         /*
         $values = array();

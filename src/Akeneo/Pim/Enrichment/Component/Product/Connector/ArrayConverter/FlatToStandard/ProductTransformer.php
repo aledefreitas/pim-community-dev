@@ -59,6 +59,7 @@ class ProductTransformer
 
         $item = $this->fixcolumns($item);
         $this->convertValues($item);
+        $this->createUrlKey($item);
 
         return $item;
     }
@@ -91,8 +92,10 @@ class ProductTransformer
     private function convertValues(&$item) :void
     {
         if (isset($item['manufacturer'])) {
-            echo $item['sku'] . "\n\n";
             $item['manufacturer'] = $this->convertValue('manufacturer', $item['manufacturer']);
+        }
+        elseif (isset($item['url_key'])) {
+            $item['url_key'] = '';
         }
     }
 
@@ -129,14 +132,21 @@ class ProductTransformer
                 $attributeOption->addOptionValue($optionValue);
             }
 
-            
-
             $this->optionSaver->save($attributeOption);
 
             $value = $code;
         }
 
         return $value;
+    }
+
+    private function createUrlKey(&$item) {
+        $urlKey = $this->slugify($item['name-en_US']);
+
+        $locales = $this->localeRepository->getActivatedLocales();
+        foreach ($locales as $locale) {
+            $item['url_key-' . $locale->getCode()] = $urlKey;
+        }
     }
 
     private function slugify($string) {
