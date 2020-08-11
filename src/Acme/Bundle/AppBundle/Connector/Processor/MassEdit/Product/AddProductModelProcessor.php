@@ -95,32 +95,6 @@ class AddProductModelProcessor extends AbstractProcessor
         }
         $content['categories'] = $categories;     
 
-        /*
-        foreach ($product->getValues() as $productValue) {
-            print_r($productValue);
-        }
-        */
-
-        /*
-        $values = array();
-
-        $fieldValues = array();
-
-        $data = 'Novo product model';
-        $value = array(
-            'locale' => 'en_US',
-            'scope' => null,
-            'data' => $data
-        );
-        
-        $fieldValues[] = $value;
-        
-        $values['name'] = $fieldValues;
-        
-        $content['values'] = $values;
-        */
-
-
         $this->productModelUpdater->update($productModel, $content);
 
         $violations = $this->validator->validate($productModel);
@@ -134,7 +108,7 @@ class AddProductModelProcessor extends AbstractProcessor
         $this->productModelSaver->save($productModel);
 
         foreach ($product->getValues() as $value) {
-            if ($value->getAttributeCode() == 'sku') continue;
+            if ($value->getAttributeCode() == 'sku' || $value->getAttributeCode() == $familyVariant) continue;
             $productModel->addValue($value);
         }
         $this->productModelSaver->save($productModel);
