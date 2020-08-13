@@ -44,5 +44,5 @@ coverage/*
 ###< symfony/web-server-bundle ###
 
 ### remove akaneo-magento folder ###
-src/Akeneo/Platform/Bundle/InstallerBundle/Resources/fixtures/akeneo-magento
+src/Akeneo/Platform/Bundle/InstallerBundle/Resources/fixtures/akeneo-magento/*
 ### remove akaneo-magento folder ###
