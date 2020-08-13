@@ -53,7 +53,7 @@ class ProductTransformer
     
     public function transform(array $item, array $options = []): array
     {
-        if (!$this->isVivapetsItem($item)) {
+        if (!$this->isVivapetsItem($item)) {            
             return $item;
         }
 
@@ -64,7 +64,7 @@ class ProductTransformer
         return $item;
     }
 
-    private function isVivapetsItem($item) :bool
+    public function isVivapetsItem($item) :bool
     {
         if (isset($item['SKU']) || isset($item['Product Model'])) {
             return true;

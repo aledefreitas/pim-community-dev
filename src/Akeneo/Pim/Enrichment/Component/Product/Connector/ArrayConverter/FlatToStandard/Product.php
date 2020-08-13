@@ -178,8 +178,10 @@ class Product implements ArrayConverterInterface
      */
     public function convert(array $item, array $options = []): array
     {
-        $item = $this->productTransformer->transform($item, $options);
-
+        if ($this->productTransformer->isVivapetsItem($item)) {
+            $item = $this->productTransformer->transform($item, $options);
+        }
+        
         $options = $this->prepareOptions($options);
 
         $mappedItem = $this->mapFields($item, $options);        
